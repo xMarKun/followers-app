@@ -1,9 +1,7 @@
-import { auth } from "@/lib/auth";
+import { getFollowersCount } from "@/actions/get-followers-count";
 
 export default async function Home() {
-  const session = await auth();
+  const followersCount = await getFollowersCount();
 
-  console.log(session?.accessToken);
-
-  return <div>Home</div>;
+  return <div>フォロワー数: {followersCount}</div>;
 }
